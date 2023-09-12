@@ -1,0 +1,23 @@
+.choose-carb-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.random-choice-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.browse-dishes-div {
+  display: flex;
+
+  justify-content: center;
+  width: 100%;
+}
