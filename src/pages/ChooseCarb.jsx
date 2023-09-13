@@ -2,9 +2,13 @@ import { useEffect, useState } from 'react';
 import DishDetailsCard from '../components/DishDetailsCard';
 import { selectRandomDish } from '../utils/selectRandomDish';
 
-export default function ChooseCarb({ allDishes }) {
-  const [selectedDish, setSelectedDish] = useState({});
-  const [isDishSelected, setIsDishSelected] = useState(false);
+export default function ChooseCarb({
+  allDishes,
+  selectedDish,
+  setSelectedDish,
+  isDishSelected,
+  setIsDishSelected,
+}) {
   const [isVeggie, setIsVeggie] = useState(false);
 
   const [carbChoices, setCarbChoices] = useState([

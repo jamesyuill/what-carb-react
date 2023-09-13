@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import '../components/NewDishForm.css';
+import { postNewDish } from '../utils/api';
 
-export default function NewDishForm() {
+export default function NewDishForm({ setAllDishes }) {
   const [ingredients, setIngredients] = useState([]);
   const [isVeggie, setIsVeggie] = useState(false);
   const [newDish, setNewDish] = useState({
     title: '',
     carbType: 'Pasta',
     vegetarian: false,
-    ingredients: ingredients,
+    ingredients: [],
   });
 
   const handleChange = (e) => {
@@ -21,7 +21,35 @@ export default function NewDishForm() {
     setNewDish((curr) => ({ ...curr, [field]: value }));
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (newDish.title === '') {
+      alert('You need to have a valid title');
+    } else if (ingredients.length === 0) {
+      alert('you need to have at least one ingredient, lazy bones!');
+    } else {
+      setAllDishes((curr) => {
+        let tempObj = { ...newDish };
+        tempObj._id = Math.random();
+        return [tempObj, ...curr];
+      });
+      postNewDish(newDish).then(({ addedDish }) => {
+        if (addedDish.title) {
+          console.log('dish added successfully');
+        } else {
+          console.log('dish not added');
+        }
+      });
+    }
+  };
+
+  useEffect(() => {
+    setNewDish((curr) => ({
+      ...curr,
+      vegetarian: isVeggie,
+      ingredients: ingredients,
+    }));
+  }, [isVeggie, ingredients]);
 
   return (
     <form className="newdish-form" onSubmit={handleSubmit}>

@@ -1,11 +1,25 @@
 import React from 'react';
 import DishCard from './DishCard';
 
-export default function DishList({ allDishes }) {
+export default function DishList({
+  allDishes,
+  setAllDishes,
+  setSelectedDish,
+  setIsDishSelected,
+}) {
   return (
     <div className="dishlist-div">
       {allDishes.map((dish) => {
-        return <DishCard dish={dish} key={dish._id} />;
+        return (
+          <DishCard
+            allDishes={allDishes}
+            setAllDishes={setAllDishes}
+            dish={dish}
+            key={dish._id}
+            setSelectedDish={setSelectedDish}
+            setIsDishSelected={setIsDishSelected}
+          />
+        );
       })}
     </div>
   );

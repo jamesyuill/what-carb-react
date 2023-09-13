@@ -1,12 +1,91 @@
 * {
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  background-color: hotpink;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  border: 2px solid grey;
+
   padding: 1rem;
   height: 97vh;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.choose-carb-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  margin: 1rem;
+}
+
+.random-choice-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1rem;
+}
+
+.browse-dishes-div {
+  display: flex;
+
+  justify-content: center;
+  width: 100%;
+  margin: 1rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.dishcard {
+  display: flex;
+  justify-content: space-between;
+  background-color: antiquewhite;
+
+  padding: 0.5rem;
+}
+
+.dishcard:hover {
+  background-color: rgb(243, 160, 53);
+  cursor: pointer;
+}
+
+.dishlist-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  height: 400px;
+  overflow-y: auto;
+}
+
+.newdish-form {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background-color: coral;
+}
+
+.hamburger-nav {
+  display: flex;
+  flex-direction: column;
 }

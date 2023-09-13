@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="main">
       <Header />
-      <Content allDishes={allDishes} />
+      <Content allDishes={allDishes} setAllDishes={setAllDishes} />
     </div>
   );
 }
