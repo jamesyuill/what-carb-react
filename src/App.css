@@ -8,7 +8,6 @@
 header {
   display: flex;
   justify-content: flex-end;
-  background-color: hotpink;
 }
 
 .main {
@@ -34,6 +33,7 @@ header {
   width: 100%;
   text-align: center;
   margin: 1rem;
+  background-color: rgba(187, 224, 250, 0.277);
 }
 
 .random-choice-div {
@@ -43,6 +43,7 @@ header {
   align-items: center;
   width: 100%;
   margin: 1rem;
+  background-color: rgba(187, 224, 250, 0.277);
 }
 
 .browse-dishes-div {
@@ -51,6 +52,7 @@ header {
   justify-content: center;
   width: 100%;
   margin: 1rem;
+  background-color: rgba(187, 224, 250, 0.277);
 }
 
 .link {
@@ -78,8 +80,17 @@ header {
 }
 
 .dishcard:hover {
-  background-color: rgb(243, 160, 53);
+  background-color: rgba(187, 224, 250, 0.655);
   cursor: pointer;
+}
+
+.dish-info h4 {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.dish-info p {
+  font-size: 0.7rem;
 }
 
 .dishlist-div {
@@ -98,7 +109,7 @@ header {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.436);
+  background-color: rgba(128, 128, 128, 0.652);
 }
 
 .form-modal {
@@ -124,7 +135,8 @@ header {
 }
 
 .newdish-form input,
-select {
+select,
+textarea {
   font-size: 1rem;
 }
 
@@ -169,10 +181,66 @@ select {
   font-size: 1rem;
 }
 .update-dish-form input,
-select {
+select,
+textarea {
   font-size: 1rem;
 }
 
 .update-form-toggle-btn {
   align-items: right;
+}
+
+.edit-icon {
+  margin: 0.2rem;
+  padding: 0.1rem;
+  border-radius: 5px;
+}
+.edit-icon:hover {
+  margin: 0.2rem;
+  padding: 0.1rem;
+  background-color: rgb(42, 129, 42);
+  color: white;
+  cursor: pointer;
+}
+
+.delete-icon {
+  margin: 0.2rem;
+  padding: 0.1rem;
+  border-radius: 5px;
+}
+
+.delete-icon:hover {
+  margin: 0.2rem;
+  padding: 0.1rem;
+  background-color: rgb(226, 54, 54);
+  color: white;
+  cursor: pointer;
+}
+
+.dish-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.dish-carbType {
+  display: inline-block;
+  font-size: 0.7rem;
+  background-color: rgba(187, 224, 250, 0.277);
+}
+
+.carb-menu-btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  justify-content: space-around;
+}
+
+.carb-btn {
+  padding: 0.1rem;
+  background-color: rgb(187, 224, 250);
+  font-size: 1rem;
+  border: none;
 }

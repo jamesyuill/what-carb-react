@@ -1,4 +1,5 @@
 import React from 'react';
+import { BsPencil, BsTrash } from 'react-icons/bs';
 import { deleteDishById } from '../utils/api';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -51,8 +52,12 @@ export default function DishCard({
         </div>
       </a>
       <div className="edit-btns">
-        <button onClick={() => handleEditClick(dish._id)}>Edit</button>
-        <button onClick={handleDelete}>Delete</button>
+        <button className="edit-icon" onClick={() => handleEditClick(dish._id)}>
+          <BsPencil size={20} />
+        </button>
+        <button className="delete-icon" onClick={handleDelete}>
+          <BsTrash size={20} />
+        </button>
       </div>
     </div>
   );

@@ -33,10 +33,10 @@ export default function ChooseCarb({
 
   return (
     <>
-      <menu className="carb-menu-btns">
+      <menu className="carb-menu-btn-container">
         {carbChoices.map((carb) => {
           return (
-            <button key={carb} onClick={handleClick}>
+            <button className="carb-btn" key={carb} onClick={handleClick}>
               {carb}
             </button>
           );
@@ -52,12 +52,13 @@ export default function ChooseCarb({
           onChange={() => setIsVeggie(() => !isVeggie)}
         />
       </form>
-
-      {isDishSelected ? (
-        <DishDetailsCard selectedDish={selectedDish} />
-      ) : (
-        <p>awaiting deliciousness</p>
-      )}
+      <article className="dish-details">
+        {isDishSelected ? (
+          <DishDetailsCard selectedDish={selectedDish} />
+        ) : (
+          <p>awaiting deliciousness</p>
+        )}
+      </article>
     </>
   );
 }

@@ -13,3 +13,9 @@ export const postNewDish = (params) => {
 export const deleteDishById = (id) => {
   return api.delete(`/dishes/${id}`).then((res) => res.data);
 };
+
+export const patchDishById = (dishToUpdate) => {
+  return api
+    .patch(`/dishes/${dishToUpdate._id}`, dishToUpdate)
+    .then((res) => res.data);
+};

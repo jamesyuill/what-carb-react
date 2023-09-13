@@ -28,6 +28,7 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
     } else if (ingredients.length === 0) {
       alert('you need to have at least one ingredient, lazy bones!');
     } else {
+      setShowForm(false);
       setAllDishes((curr) => {
         let tempObj = { ...newDish };
         tempObj._id = Math.random();
@@ -104,8 +105,8 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
             <textarea
               id="taginput"
               type="text"
-              cols="40"
-              rows="5"
+              cols="35"
+              rows="3"
               placeholder="Enter Ingredients"
               onChange={handleChange}
             />
