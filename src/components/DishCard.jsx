@@ -26,24 +26,24 @@ export default function DishCard({
 
   const handleClick = (id) => {
     const chosenDish = allDishes.filter((item) => item._id === id);
-    setSelectedDish(chosenDish);
+    setSelectedDish(chosenDish[0]);
     setIsDishSelected(true);
-    console.log(chosenDish);
+
     navigate('/chooseCarb');
   };
 
   return (
-    <a className="link" onClick={() => handleClick(dish._id)}>
-      <div className="dishcard">
+    <div className="dishcard">
+      <a className="link" onClick={() => handleClick(dish._id)}>
         <div className="dish-info">
           <h4>{dish.title}</h4>
           <p>carb type: {dish.carbType}</p>
         </div>
-        <div className="edit-btns">
-          <button>Edit</button>
-          <button onClick={handleDelete}>Delete</button>
-        </div>
+      </a>
+      <div className="edit-btns">
+        <button>Edit</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
-    </a>
+    </div>
   );
 }

@@ -33,7 +33,7 @@ export default function ChooseCarb({
 
   return (
     <>
-      <menu>
+      <menu className="carb-menu-btns">
         {carbChoices.map((carb) => {
           return (
             <button key={carb} onClick={handleClick}>

@@ -19,10 +19,16 @@ export default function AllDishes({
     <>
       <div className="alldishes-main">
         <div className="toggle-form">
-          <button onClick={handleClick}>
-            {showForm ? 'Hide form' : 'Add dish'}
+          <button className="add-dish-btn" onClick={handleClick}>
+            Add dish
           </button>
-          {showForm ? <NewDishForm setAllDishes={setAllDishes} /> : null}
+          {showForm ? (
+            <NewDishForm
+              setAllDishes={setAllDishes}
+              showForm={showForm}
+              setShowForm={setShowForm}
+            />
+          ) : null}
         </div>
         <DishList
           allDishes={allDishes}
