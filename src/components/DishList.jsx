@@ -6,6 +6,10 @@ export default function DishList({
   setAllDishes,
   setSelectedDish,
   setIsDishSelected,
+  showUpdate,
+  setShowUpdate,
+  dishToUpdate,
+  setDishToUpdate,
 }) {
   return (
     <div className="dishlist-div">
@@ -18,6 +22,10 @@ export default function DishList({
             key={dish._id}
             setSelectedDish={setSelectedDish}
             setIsDishSelected={setIsDishSelected}
+            showUpdate={showUpdate}
+            setShowUpdate={setShowUpdate}
+            dishToUpdate={dishToUpdate}
+            setDishToUpdate={setDishToUpdate}
           />
         );
       })}

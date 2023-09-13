@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DishList from '../components/DishList';
 
 import NewDishForm from '../components/NewDishForm';
+import EditDishForm from '../components/EditDishForm';
 
 export default function AllDishes({
   allDishes,
@@ -10,6 +11,8 @@ export default function AllDishes({
   setIsDishSelected,
 }) {
   const [showForm, setShowForm] = useState(false);
+  const [showUpdate, setShowUpdate] = useState(false);
+  const [dishToUpdate, setDishToUpdate] = useState({});
 
   const handleClick = () => {
     setShowForm(!showForm);
@@ -29,12 +32,24 @@ export default function AllDishes({
               setShowForm={setShowForm}
             />
           ) : null}
+          {showUpdate ? (
+            <EditDishForm
+              allDishes={allDishes}
+              setShowUpdate={setShowUpdate}
+              dishToUpdate={dishToUpdate}
+              setDishToUpdate={setDishToUpdate}
+            />
+          ) : null}
         </div>
         <DishList
           allDishes={allDishes}
           setAllDishes={setAllDishes}
           setSelectedDish={setSelectedDish}
           setIsDishSelected={setIsDishSelected}
+          showUpdate={showUpdate}
+          setShowUpdate={setShowUpdate}
+          dishToUpdate={dishToUpdate}
+          setDishToUpdate={setDishToUpdate}
         />
       </div>
     </>

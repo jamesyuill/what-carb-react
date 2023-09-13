@@ -8,6 +8,10 @@ export default function DishCard({
   dish,
   setSelectedDish,
   setIsDishSelected,
+  showUpdate,
+  setShowUpdate,
+  dishToUpdate,
+  setDishToUpdate,
 }) {
   const navigate = useNavigate();
   const handleDelete = (e) => {
@@ -28,8 +32,14 @@ export default function DishCard({
     const chosenDish = allDishes.filter((item) => item._id === id);
     setSelectedDish(chosenDish[0]);
     setIsDishSelected(true);
-
     navigate('/chooseCarb');
+  };
+
+  const handleEditClick = (id) => {
+    const chosenDish = allDishes.filter((item) => item._id === id);
+
+    setDishToUpdate(chosenDish[0]);
+    setShowUpdate(true);
   };
 
   return (
@@ -41,7 +51,7 @@ export default function DishCard({
         </div>
       </a>
       <div className="edit-btns">
-        <button>Edit</button>
+        <button onClick={() => handleEditClick(dish._id)}>Edit</button>
         <button onClick={handleDelete}>Delete</button>
       </div>
     </div>

@@ -101,10 +101,12 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
             <label htmlFor="taginput">
               Ingredients (seperate with a comma):
             </label>
-            <input
+            <textarea
               id="taginput"
               type="text"
-              placeholder="Enter Ingredient"
+              cols="40"
+              rows="5"
+              placeholder="Enter Ingredients"
               onChange={handleChange}
             />
           </div>
