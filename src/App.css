@@ -202,7 +202,7 @@ header {
 
 .dish-details-card {
   display: grid;
-  grid-template-rows: 11% 53% auto auto;
+  grid-template-rows: 11% 56% auto auto;
   padding: 0.5rem;
   height: 58vh;
 
@@ -284,6 +284,16 @@ header {
   width: 10rem;
   padding: 0.5rem;
   background-color: black;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.carb-btn:hover {
+  width: 10rem;
+  padding: 0.5rem;
+  background-color: rgba(187, 224, 250, 0.655);
+
   font-size: 1rem;
   border: none;
   border-radius: 5px;
