@@ -1,19 +1,21 @@
 * {
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Comfortaa', cursive;
   padding: 0;
   margin: 0;
+  color: white;
 }
 
 header {
   display: flex;
   justify-content: flex-end;
+  height: 10%;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-
+  justify-content: flex-start;
   padding: 1rem;
   height: 97vh;
 }
@@ -21,19 +23,13 @@ header {
 .main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
 }
 
 .choose-carb-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  text-align: center;
+  font-size: 1.4rem;
   margin: 1rem;
-  background-color: rgba(187, 224, 250, 0.277);
+  margin-top: 40%;
+  text-align: center;
 }
 
 .random-choice-div {
@@ -41,22 +37,42 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  height: 3rem;
   margin: 1rem;
-  background-color: rgba(187, 224, 250, 0.277);
+  background-color: black;
+  border-radius: 5px;
+}
+
+.random-choice-div p {
+  font-size: 1rem;
 }
 
 .browse-dishes-div {
   display: flex;
 
   justify-content: center;
-  width: 100%;
+  align-items: center;
+
+  height: 3rem;
   margin: 1rem;
-  background-color: rgba(187, 224, 250, 0.277);
+  background-color: black;
+  border-radius: 5px;
+}
+
+.alldishes-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .link {
   text-decoration: none;
+  color: black;
+}
+
+.link:visited {
+  text-decoration: none;
+  color: black;
 }
 
 .add-dish-btn {
@@ -74,7 +90,7 @@ header {
 .dishcard {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(187, 224, 250, 0.277);
+  background-color: rgba(64, 81, 94, 0.766);
   border-radius: 5px;
   padding: 0.5rem;
 }
@@ -82,6 +98,12 @@ header {
 .dishcard:hover {
   background-color: rgba(187, 224, 250, 0.655);
   cursor: pointer;
+}
+
+.dish-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .dish-info h4 {
@@ -102,14 +124,185 @@ header {
   overflow-y: auto;
 }
 
-.form-wrapper {
-  position: absolute;
+@keyframes move-in {
+  from {
+    right: -20px;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
 
+.hamburger-nav {
+  position: absolute;
+  top: 10%;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: black;
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 40%;
+  text-align: left;
+  animation-name: move-in;
+  animation-duration: 0.5s;
+  z-index: 3;
+}
+
+.background-fade {
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.652);
+  background-color: rgba(128, 128, 128, 0.724);
+  z-index: 2;
+  animation-name: move-in;
+  animation-duration: 0.5s;
+}
+
+.edit-icon {
+  margin: 0.2rem;
+  padding: 0.2rem;
+
+  border-radius: 5px;
+  background: none;
+  border: none;
+}
+.edit-icon:hover {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  background-color: rgb(67, 172, 67);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.delete-icon {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  background: none;
+
+  border-radius: 5px;
+
+  border: none;
+}
+
+.delete-icon:hover {
+  margin: 0.2rem;
+  padding: 0.2rem;
+  background-color: rgb(234, 49, 49);
+  color: white;
+  cursor: pointer;
+  border: none;
+}
+
+.dish-details-card {
+  display: grid;
+  grid-template-rows: 11% 53% auto auto;
+  padding: 0.5rem;
+  height: 58vh;
+
+  margin-top: 0.3rem;
+  background-color: black;
+  border-radius: 5px;
+}
+
+.dish-title {
+  display: flex;
+  font-weight: 700;
+  grid-row: 1;
+  font-size: 1.1rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dish-image img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 90%;
+
+  max-width: 400px;
+}
+
+.dish-ingredients ul {
+  padding-top: 0.3rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  grid-row: 3;
+  justify-content: left;
+  gap: 0.3rem;
+  list-style: none;
+}
+
+.dish-ingredients li {
+  background-color: rgba(112, 137, 155, 0.885);
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+}
+
+.dish-veggie-marker {
+  display: inline-block;
+  background-color: rgba(92, 154, 92, 0.741);
+  padding: 0.3rem;
+  border-radius: 5px;
+}
+
+.dish-carbType {
+  display: inline-block;
+
+  padding: 0.3rem;
+  border-radius: 5px;
+  background-color: rgba(112, 137, 155, 0.885);
+}
+
+.dish-footer {
+  grid-row: 4;
+  display: flex;
+  gap: 0.3rem;
+  align-items: end;
+}
+
+.carb-menu-btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  justify-content: space-around;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.carb-btn {
+  width: 10rem;
+  padding: 0.5rem;
+  background-color: black;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+.veggie-selector-form {
+  margin: 0.3rem;
+  background-color: rgba(112, 137, 155, 0.885);
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+
+.form-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.724);
 }
 
 .form-modal {
@@ -124,11 +317,10 @@ header {
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
-
   width: 90%;
-  height: 50vh;
+  height: 56vh;
   padding: 1rem;
-  background-color: rgb(187, 224, 250);
+  background-color: rgba(0, 0, 0, 0.688);
   border: 1px solid black;
   border-radius: 5px;
   font-size: 1rem;
@@ -138,15 +330,71 @@ header {
 select,
 textarea {
   font-size: 1rem;
+  padding: 0.3rem;
+}
+
+.newdish-form select,
+textarea {
+  width: 100%;
+}
+
+.newdish-form select {
+  color: black;
+}
+
+.addDishbtn {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
+
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+}
+
+.addDishbtn:hover {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem;
+  margin-top: 0.5rem;
+
+  background-color: rgba(187, 224, 250, 0.655);
+  border: none;
+  border-radius: 5px;
 }
 
 .add-dish-btn {
   font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem;
+  margin: 0;
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.689);
+  border-radius: 5px;
+}
+.add-dish-btn:hover {
+  font-size: 1rem;
+  width: 100%;
+  padding: 0.3rem;
+  margin: 0;
+  background-color: rgba(187, 224, 250, 0.655);
+  border: 1px solid rgba(255, 255, 255, 0.689);
+  border-radius: 5px;
 }
 
-.hamburger-nav {
+.form-title {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding: 0.3rem;
+}
+
+.form-carbtype {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.3rem;
 }
 
 .update-form-wrapper {
@@ -154,9 +402,9 @@ textarea {
 
   top: 0;
   left: 0;
-  width: 100%;
+
   height: 100%;
-  background-color: rgba(128, 128, 128, 0.436);
+  background-color: rgba(128, 128, 128, 0.724);
 }
 
 .update-form-modal {
@@ -171,11 +419,10 @@ textarea {
   flex-direction: column;
   gap: 1rem;
   align-items: flex-start;
-
   width: 90%;
-  height: 50vh;
+  height: 56vh;
   padding: 1rem;
-  background-color: rgb(187, 224, 250);
+  background-color: rgba(0, 0, 0, 0.688);
   border-radius: 5px;
   border: 1px solid black;
   font-size: 1rem;
@@ -184,63 +431,47 @@ textarea {
 select,
 textarea {
   font-size: 1rem;
+  color: black;
 }
 
-.update-form-toggle-btn {
+.close-form-toggle-btn {
   align-items: right;
-}
-
-.edit-icon {
-  margin: 0.2rem;
-  padding: 0.1rem;
-  border-radius: 5px;
-}
-.edit-icon:hover {
-  margin: 0.2rem;
-  padding: 0.1rem;
-  background-color: rgb(42, 129, 42);
-  color: white;
-  cursor: pointer;
-}
-
-.delete-icon {
-  margin: 0.2rem;
-  padding: 0.1rem;
+  background-color: black;
+  border: none;
   border-radius: 5px;
 }
 
-.delete-icon:hover {
-  margin: 0.2rem;
-  padding: 0.1rem;
-  background-color: rgb(226, 54, 54);
-  color: white;
-  cursor: pointer;
-}
-
-.dish-details {
+.home-page-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
+  justify-content: space-between;
+  gap: 5rem;
 }
 
-.dish-carbType {
-  display: inline-block;
-  font-size: 0.7rem;
-  background-color: rgba(187, 224, 250, 0.277);
+.tag {
 }
 
-.carb-menu-btn-container {
+.home-page-menu {
+}
+
+.no-dish-alert {
+  position: relative;
+  top: 20%;
+  left: 5vw;
+  z-index: 2;
+}
+
+.no-dish-message {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.2rem;
-  justify-content: space-around;
-}
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: 30vh;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.688);
 
-.carb-btn {
-  padding: 0.1rem;
-  background-color: rgb(187, 224, 250);
+  border-radius: 5px;
   font-size: 1rem;
-  border: none;
 }

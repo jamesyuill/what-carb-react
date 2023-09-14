@@ -3,8 +3,10 @@ import DishList from '../components/DishList';
 
 import NewDishForm from '../components/NewDishForm';
 import EditDishForm from '../components/EditDishForm';
+import LoadingModal from '../components/LoadingModal';
 
 export default function AllDishes({
+  isLoading,
   allDishes,
   setAllDishes,
   setSelectedDish,
@@ -22,8 +24,8 @@ export default function AllDishes({
     <>
       <div className="alldishes-main">
         <div className="toggle-form">
-          <button className="add-dish-btn" onClick={handleClick}>
-            Add dish
+          <button className="addDishbtn" onClick={handleClick}>
+            Add Dish
           </button>
           {showForm ? (
             <NewDishForm
@@ -52,6 +54,7 @@ export default function AllDishes({
           setDishToUpdate={setDishToUpdate}
         />
       </div>
+      {isLoading && <LoadingModal />}
     </>
   );
 }

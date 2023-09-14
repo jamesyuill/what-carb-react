@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { patchDishById } from '../utils/api';
+import { AiOutlineClose } from 'react-icons/ai';
 
 export default function EditDishForm({
   allDishes,
@@ -33,13 +34,13 @@ export default function EditDishForm({
     <div className="update-form-wrapper">
       <div className="update-form-modal">
         <button
-          className="update-form-toggle-btn"
+          className="close-form-toggle-btn"
           onClick={() => setShowUpdate(false)}
         >
-          Close
+          <AiOutlineClose size={25} />
         </button>
         <form className="update-dish-form" onSubmit={handleSubmit}>
-          <div>
+          <div className="form-title">
             <label htmlFor="title">Title: </label>
             <input
               type="text"
@@ -49,7 +50,7 @@ export default function EditDishForm({
             />
           </div>
 
-          <div>
+          <div className="form-carbtype">
             <label htmlFor="carbType">Carb Type: </label>
             <select
               id="carbType"
@@ -66,6 +67,23 @@ export default function EditDishForm({
           </div>
 
           <div>
+            <label htmlFor="taginput">
+              Ingredients (seperate with a comma):
+            </label>
+            <textarea
+              id="taginput"
+              rows="3"
+              type="text"
+              value={dishToUpdate.ingredients.map((item) => {
+                return item === dishToUpdate.ingredients[0]
+                  ? `${item}`
+                  : ` ${item}`;
+              })}
+              onChange={(e) => handleIngredients(e.target.value)}
+            />
+          </div>
+
+          <div>
             <label htmlFor="vegetarian">Vegetarian: </label>
             <input
               type="checkbox"
@@ -78,20 +96,6 @@ export default function EditDishForm({
                   ['vegetarian']: isVeggie,
                 }));
               }}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="taginput">
-              Ingredients (seperate with a comma):
-            </label>
-            <textarea
-              id="taginput"
-              cols="35"
-              rows="3"
-              type="text"
-              value={dishToUpdate.ingredients}
-              onChange={(e) => handleIngredients(e.target.value)}
             />
           </div>
           <button className="add-dish-btn">Update Dish!</button>

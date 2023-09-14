@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { postNewDish } from '../utils/api';
+import { AiOutlineClose } from 'react-icons/ai';
 
 export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
   const [ingredients, setIngredients] = useState([]);
@@ -55,22 +56,26 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
   return (
     <div className="form-wrapper">
       <div className="form-modal">
-        <button className="form-toggle-btn" onClick={() => setShowForm(false)}>
-          Close
+        <button
+          className="close-form-toggle-btn"
+          onClick={() => setShowForm(false)}
+        >
+          <AiOutlineClose size={25} />
         </button>
         <form className="newdish-form" onSubmit={handleSubmit}>
-          <div>
+          <div className="form-title">
             <label htmlFor="title">Title: </label>
             <input
               type="text"
               id="title"
+              size="32"
               placeholder="Dish title"
               value={newDish.title}
               onChange={(e) => updateNewDish('title', e.target.value)}
             />
           </div>
 
-          <div>
+          <div className="form-carbtype">
             <label htmlFor="carbType">Carb Type: </label>
             <select
               id="carbType"
@@ -86,6 +91,19 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
           </div>
 
           <div>
+            <label htmlFor="taginput">
+              Ingredients (seperate with a comma):
+            </label>
+            <textarea
+              id="taginput"
+              type="text"
+              rows="3"
+              placeholder="Enter Ingredients"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
             <label htmlFor="vegetarian">Vegetarian: </label>
             <input
               type="checkbox"
@@ -95,20 +113,6 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
                 setIsVeggie(!isVeggie);
                 setNewDish((curr) => ({ ...curr, ['vegetarian']: isVeggie }));
               }}
-            />
-          </div>
-
-          <div>
-            <label htmlFor="taginput">
-              Ingredients (seperate with a comma):
-            </label>
-            <textarea
-              id="taginput"
-              type="text"
-              cols="35"
-              rows="3"
-              placeholder="Enter Ingredients"
-              onChange={handleChange}
             />
           </div>
           <button className="add-dish-btn">Add Dish!</button>
