@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BsPencil, BsTrash } from 'react-icons/bs';
 import { deleteDishById } from '../utils/api';
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,9 +13,13 @@ export default function DishCard({
   setShowUpdate,
   dishToUpdate,
   setDishToUpdate,
+  deleteSuccess,
+  setDeleteSuccess,
 }) {
   const navigate = useNavigate();
+
   const handleDelete = (e) => {
+    e.stopPropagation();
     e.preventDefault();
     setAllDishes((curr) => {
       return curr.filter((item) => item._id !== dish._id);
@@ -23,6 +27,7 @@ export default function DishCard({
     deleteDishById(dish._id).then(({ deletedDish }) => {
       if (deletedDish.title) {
         console.log(`you've successfully deleted something`);
+        setDeleteSuccess(true);
       } else {
         console.log(`Not sure that worked mate`);
       }
@@ -44,21 +49,34 @@ export default function DishCard({
   };
 
   return (
-    <div className="dishcard">
-      <a className="link" onClick={() => handleClick(dish._id)}>
+    <a
+      className="link"
+      onClick={(e) => {
+        e.stopPropagation();
+        handleClick(dish._id);
+      }}
+    >
+      <div className="dishcard">
         <div className="dish-info">
           <h4>{dish.title}</h4>
           <p>carb type: {dish.carbType}</p>
         </div>
-      </a>
-      <div className="edit-btns">
-        <button className="edit-icon" onClick={() => handleEditClick(dish._id)}>
-          <BsPencil size={20} />
-        </button>
-        <button className="delete-icon" onClick={handleDelete}>
-          <BsTrash size={20} />
-        </button>
+
+        <div className="edit-btns">
+          <button
+            className="edit-icon"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleEditClick(dish._id);
+            }}
+          >
+            <BsPencil size={20} />
+          </button>
+          <button className="delete-icon" onClick={handleDelete}>
+            <BsTrash size={20} />
+          </button>
+        </div>
       </div>
-    </div>
+    </a>
   );
 }

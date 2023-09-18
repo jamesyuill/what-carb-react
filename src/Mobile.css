@@ -13,7 +13,7 @@ body {
 header {
   display: flex;
   justify-content: flex-end;
-  height: 8%;
+  height: 60px;
 }
 
 .main {

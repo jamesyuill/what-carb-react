@@ -10,6 +10,8 @@ export default function DishList({
   setShowUpdate,
   dishToUpdate,
   setDishToUpdate,
+  deleteSuccess,
+  setDeleteSuccess,
 }) {
   return (
     <div className="dishlist-div">
@@ -26,6 +28,8 @@ export default function DishList({
             setShowUpdate={setShowUpdate}
             dishToUpdate={dishToUpdate}
             setDishToUpdate={setDishToUpdate}
+            deleteSuccess={deleteSuccess}
+            setDeleteSuccess={setDeleteSuccess}
           />
         );
       })}
