@@ -1,3 +1,10 @@
 export default function LoadingModal() {
-  return <div>loading deliciousness...</div>;
+  return (
+    <div className="loading-modal">
+      loading deliciousness...
+      <div className="loading-gif">
+        <img src="./loading.gif" />
+      </div>
+    </div>
+  );
 }

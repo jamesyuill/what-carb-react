@@ -9,6 +9,7 @@ export default function EditDishForm({
   setDishToUpdate,
 }) {
   const [isVeggie, setIsVeggie] = useState(dishToUpdate.vegetarian);
+  const [success, setSuccess] = useState(false);
   const updateDish = (field, value) => {
     setDishToUpdate((curr) => ({ ...curr, [field]: value }));
   };
@@ -21,9 +22,9 @@ export default function EditDishForm({
   const handleSubmit = (e) => {
     e.preventDefault();
     patchDishById(dishToUpdate).then(({ updatedDish }) => {
-      setShowUpdate(false);
       if (updatedDish._id === dishToUpdate._id) {
         console.log('dish successfully updated');
+        setSuccess(true);
       } else {
         console.log('something went wrong');
       }
@@ -99,6 +100,7 @@ export default function EditDishForm({
             />
           </div>
           <button className="add-dish-btn">Update Dish!</button>
+          {success ? <p>Dish successfully updated!</p> : null}
         </form>
       </div>
     </div>

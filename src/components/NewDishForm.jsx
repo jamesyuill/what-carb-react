@@ -3,6 +3,7 @@ import { postNewDish } from '../utils/api';
 import { AiOutlineClose } from 'react-icons/ai';
 
 export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
+  const [success, setSuccess] = useState(false);
   const [ingredients, setIngredients] = useState([]);
   const [isVeggie, setIsVeggie] = useState(false);
   const [newDish, setNewDish] = useState({
@@ -29,7 +30,6 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
     } else if (ingredients.length === 0) {
       alert('you need to have at least one ingredient, lazy bones!');
     } else {
-      setShowForm(false);
       setAllDishes((curr) => {
         let tempObj = { ...newDish };
         tempObj._id = Math.random();
@@ -38,6 +38,7 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
       postNewDish(newDish).then(({ addedDish }) => {
         if (addedDish.title) {
           console.log('dish added successfully');
+          setSuccess(true);
         } else {
           console.log('dish not added');
         }
@@ -116,6 +117,7 @@ export default function NewDishForm({ setAllDishes, showForm, setShowForm }) {
             />
           </div>
           <button className="add-dish-btn">Add Dish!</button>
+          {success ? <p>Dish successfully added!</p> : null}
         </form>
       </div>
     </div>

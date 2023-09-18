@@ -16,14 +16,16 @@
     display: flex;
     justify-content: flex-end;
     min-height: 50px;
-    background-color: hotpink;
+    /* background-color: hotpink; */
   }
 
   .main {
     display: flex;
     flex-direction: column;
+
     padding: 1rem;
     height: 100vh;
+    width: 100vw;
   }
 
   .main-content {
@@ -31,6 +33,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;
     margin: 0 auto;
   }
 
@@ -88,10 +91,6 @@
     margin-top: 0.5rem;
   }
 
-  .carb-menu-btns {
-    margin: 0.5rem;
-  }
-
   .form-toggle-btn {
     align-items: right;
   }
@@ -99,6 +98,7 @@
   .dishcard {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: rgba(64, 81, 94, 0.766);
     border-radius: 5px;
     padding: 0.5rem;
@@ -116,12 +116,12 @@
   }
 
   .dish-info h4 {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     font-weight: 600;
   }
 
   .dish-info p {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 
   .dishlist-div {
@@ -212,31 +212,30 @@
 
   .dish-details-card {
     display: grid;
-    grid-template-rows: 50px 220px 100px 20px;
-    padding: 0.5rem;
-    height: 100%;
-    gap: 0.3rem;
-    margin-top: 0.3rem;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30px 160px 10px;
+    margin: 0.3rem;
     background-color: black;
     border-radius: 5px;
-    max-width: 350px;
-    margin: 0 auto;
+    width: 600px;
+    height: 260px;
   }
 
   .dish-title {
     display: flex;
     font-weight: 700;
     grid-row: 1;
+    grid-column: 1/3;
     font-size: 1.1rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    padding: 0.3rem;
+    margin: 0;
+    align-items: flex-start;
+    justify-content: left;
   }
 
   .dish-image img {
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     margin: 0 auto;
     width: 90%;
 
@@ -248,7 +247,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    grid-row: 3;
+
     justify-content: left;
     gap: 0.3rem;
     list-style: none;
@@ -274,11 +273,13 @@
     font-size: 0.8rem;
     padding: 0.3rem;
     border-radius: 5px;
+
     background-color: rgba(112, 137, 155, 0.885);
   }
 
   .dish-footer {
-    grid-row: 4;
+    grid-row: 3;
+    grid-column: 2;
     display: flex;
     gap: 0.3rem;
     align-items: end;
@@ -287,41 +288,42 @@
   .carb-menu-btn-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.2rem;
-    justify-content: space-around;
+    justify-content: space-between;
+    width: 600px;
+    gap: 1rem;
+
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
-    max-width: 350px;
-    margin: 0 auto;
   }
 
   .carb-btn {
     width: 10rem;
+    height: 6rem;
     padding: 0.5rem;
     background-color: black;
-    font-size: 1rem;
+    font-size: 1.5rem;
     border: none;
     border-radius: 5px;
   }
 
   .carb-btn:hover {
     width: 10rem;
+    height: 6rem;
     padding: 0.5rem;
     background-color: rgba(187, 224, 250, 0.655);
 
-    font-size: 1rem;
+    font-size: 1.5rem;
     border: none;
     border-radius: 5px;
   }
 
   .veggie-selector-form {
-    margin: 0.3rem;
+    margin: 0.5rem;
     background-color: rgba(112, 137, 155, 0.885);
     padding: 0.5rem;
     border-radius: 5px;
-    max-width: 350px;
-    width: 347px;
-    margin: 0.3rem auto;
+
+    width: 600px;
   }
 
   .form-wrapper {
@@ -512,5 +514,9 @@
 
     border-radius: 5px;
     font-size: 1rem;
+  }
+
+  .loading-modal {
+    margin-top: 2rem;
   }
 }

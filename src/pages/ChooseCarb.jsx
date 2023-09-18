@@ -37,40 +37,59 @@ export default function ChooseCarb({
       {noDishAlert ? (
         <NoDishAlertModal setNoDishAlert={setNoDishAlert} />
       ) : null}
-      <menu className="carb-menu-btn-container">
-        {carbChoices.map((carb) => {
-          return (
-            <button className="carb-btn" key={carb} onClick={handleClick}>
-              {carb}
-            </button>
-          );
-        })}
-      </menu>
-      <form className="veggie-selector-form">
-        <label htmlFor="veggie-option">Vegetarian Only: </label>
-        <input
-          type="checkbox"
-          id="veggie-option"
-          name="veggie"
-          value={isVeggie}
-          onChange={() => setIsVeggie(() => !isVeggie)}
-        />
-      </form>
+      <div>
+        <menu className="carb-menu-btn-container">
+          {carbChoices.map((carb) => {
+            return (
+              <button className="carb-btn" key={carb} onClick={handleClick}>
+                {carb}
+              </button>
+            );
+          })}
+        </menu>
+      </div>
+      <div>
+        <form className="veggie-selector-form">
+          <label htmlFor="veggie-option">Vegetarian Only: </label>
+          <input
+            type="checkbox"
+            id="veggie-option"
+            name="veggie"
+            value={isVeggie}
+            onChange={() => setIsVeggie(() => !isVeggie)}
+          />
+        </form>
+      </div>
       <article className="dish-details">
         {isDishSelected ? (
           <DishDetailsCard selectedDish={selectedDish} />
         ) : (
-          <p
-            style={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginTop: '20%',
-              fontWeight: '700',
-            }}
-          >
-            Awaiting deliciousness...
-          </p>
+          <div>
+            <p
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginTop: '20%',
+                fontWeight: '700',
+              }}
+            >
+              Awaiting deliciousness...
+            </p>
+            <div>
+              <img
+                src="./loading.gif"
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  margin: '0 auto',
+                  paddingTop: '10%',
+                  width: '3rem',
+                }}
+              />
+            </div>
+          </div>
         )}
       </article>
     </>

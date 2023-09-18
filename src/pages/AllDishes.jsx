@@ -27,6 +27,7 @@ export default function AllDishes({
           <button className="addDishbtn" onClick={handleClick}>
             Add Dish
           </button>
+
           {showForm ? (
             <NewDishForm
               setAllDishes={setAllDishes}
@@ -43,6 +44,7 @@ export default function AllDishes({
             />
           ) : null}
         </div>
+        {isLoading && <LoadingModal />}
         <DishList
           allDishes={allDishes}
           setAllDishes={setAllDishes}
@@ -54,7 +56,6 @@ export default function AllDishes({
           setDishToUpdate={setDishToUpdate}
         />
       </div>
-      {isLoading && <LoadingModal />}
     </>
   );
 }
