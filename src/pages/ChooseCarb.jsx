@@ -70,25 +70,15 @@ export default function ChooseCarb({
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginTop: '20%',
+                marginTop: '30%',
                 fontWeight: '700',
+                backgroundColor: 'black',
+                padding: '2rem',
+                borderRadius: '5px',
               }}
             >
-              Awaiting deliciousness...
+              Pick a carb...any carb!
             </p>
-            <div>
-              <img
-                src="./loading.gif"
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  margin: '0 auto',
-                  paddingTop: '10%',
-                  width: '3rem',
-                }}
-              />
-            </div>
           </div>
         )}
       </article>
