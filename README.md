@@ -16,4 +16,8 @@ Initially, I wanted to get all the functionality running before worrying about s
 
 This helped when I did decide to start styling as mostly everything was in the right place.
 
+The live project can be fount here - https://what-carb.netlify.app/
+
+*please bear in mind that the backend winds down and takes a considerable amount of time to return with it's first ping on waking*
+
 Feel free to clone this repo and run 'npm install' once you have 'cd'd into the folder.
