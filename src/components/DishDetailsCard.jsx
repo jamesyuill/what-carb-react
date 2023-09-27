@@ -5,22 +5,22 @@ export default function DishDetailsCard({ selectedDish }) {
 
   switch (selectedDish.carbType) {
     case 'Pasta':
-      imgSrc = 'pasta.jpg';
+      imgSrc = 'pasta';
       break;
     case 'Rice':
-      imgSrc = 'rice.jpg';
+      imgSrc = 'rice';
       break;
     case 'Noodles':
-      imgSrc = 'noodles.jpg';
+      imgSrc = 'noodles';
       break;
     case 'Cous Cous':
-      imgSrc = 'couscous.jpg';
+      imgSrc = 'couscous';
       break;
     case 'Potato':
-      imgSrc = 'potato.jpg';
+      imgSrc = 'potato';
       break;
     case 'Tortilla':
-      imgSrc = 'tortilla.jpg';
+      imgSrc = 'tortilla';
       break;
   }
 
@@ -28,7 +28,7 @@ export default function DishDetailsCard({ selectedDish }) {
     <div className="dish-details-card">
       <div className="dish-title">{selectedDish.title}</div>
       <div className="dish-image">
-        <img src={`/images/${imgSrc}`} />
+        <img src={`/images/${imgSrc}-small.jpg`} />
       </div>
       <div className="dish-ingredients">
         Ingredients:
